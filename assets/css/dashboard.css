@@ -1,0 +1,124 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: #f4f6f9;
+  color: #333;
+  display: flex;
+  min-height: 100vh;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+  object-fit: cover; /* Ensures it fills the box without distortion */
+  border-radius: 50%; /* Makes it circular */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.logo:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.logo {
+  border: 2px solid #fff;
+}
+.logo-bg {
+  background-image: url("bnk.png");
+  background-size: cover;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Layout */
+.app {
+  display: grid;
+  grid-template-columns: 250px auto;      /* Sidebar + Main */
+  grid-template-rows: 60px auto 50px;     /* Topbar + Content + Footer */
+  grid-template-areas:
+    "sidebar topbar"
+    "sidebar main"
+    "sidebar footer";
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  grid-row: 1 / span 2;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 5px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /*New adding*/
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.sidebar.active {
+  display: block;
+}
+
+/* Topbar */
+.topbar {
+  grid-area: topbar;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end; /* content to right */
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* Main Content */
+.main-content {
+  grid-area: main;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: #f9fafb;
+}
+
+/* Footer */
+.footer {
+  grid-area: footer;
+  background: #1f2937;
+  color: #fff;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+}
+
+#userDropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}

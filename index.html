@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUT24 Sign in</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/bnk.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/bnk.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/bnk.png" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <main>
+       <img src="assets/img/bnk.png" alt="Canadia Bank logo">
+       <figure>
+            <div class="content"><h1><strong>REVIEW USER T24 </strong></h1></div>
+            
+            <figcaption><p>Core-Banking Support</p></figcaption>
+       </figure> 
+            
+      <section>
+        
+        <form class="user" method="post" action="backend/login.php">
+
+            <fieldset>
+                <legend class="text-center">
+                  <h4 class="h4 text-gray-900 mb-6">RUT24 Sign in</h4>
+                </legend>
+                <div class="form-group">
+                            <input type="text" name="sigon_name" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Your Name" autocomplete="off" required>
+                    </div>
+                <div class="form-group password-container">
+                  <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" autocomplete="new-password" required>
+                  <span class="toggle-password" onclick="togglePasswordVisibility()">
+                    <i id="password-icon" class="fa fa-eye"></i>
+                  </span>
+                </div>
+                <div>
+                  <div class="custom-control custom-checkbox small">
+                    <input type="checkbox" class="custom-control-input" id="customCheck" onclick="handleRememberMe()">
+                    <label class="custom-control-label" for="customCheck">Remember Me</label>
+                  </div>
+                </div>
+                <br>
+                          <button type="submit" name="submit" class="form-control gradient-button" data-toggle="modal" data-target="#loader">Sign in</button>
+              </fieldset>
+				
+        </form>
+		<br>
+        
+      </section>
+    </main>
+    <figure>
+            <figcaption>&copy;T24-<em>Support Team.<a href="#"> All right reserved.</em></a></figcaption>
+        </figure>
+  </body>
+</html>

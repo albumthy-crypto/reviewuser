@@ -1,0 +1,199 @@
+/* General Body Styles */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background: #f3f4f6; */
+  background: #ffffff;
+  background: linear-gradient(
+    45deg,
+    /* diagonal direction */ rgba(214, 220, 221, 0.945) 0%,
+    /* bottom-left color */ rgba(69, 142, 151, 0.582) 50%,
+    /* middle color */ rgba(214, 220, 221, 0.945) 100%
+      /* top-right color (same as start) */
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05); /* subtle overlay */
+  backdrop-filter: blur(6px); /* soft blur */
+  z-index: -1;
+}
+
+.content {
+  z-index: 1; /* Ensure content is above the blurred background */
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 19px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  color: #333;
+  position: relative;
+}
+
+/* Header Section */
+main h1,
+main h2 {
+  text-align: center;
+  margin-bottom: 0.5px;
+  color: #474747e0;
+  position: relative;
+}
+.parent {
+  width: 100%;
+}
+.content {
+  padding-right: -20px;
+  text-align: right;
+}
+
+main img {
+  max-width: 15.99%;
+  height: auto;
+  display: block;
+  margin: 0;
+  border: none;
+  position: absolute;
+  top: 0; /* align to top */
+  left: 0; /* align to left */
+}
+main p {
+  font-size: x-small;
+  text-align: left;
+  margin-bottom: 25px;
+  color: #2a2c2c;
+  position: absolute;
+  top: 60px; /* align to top */
+  right: 5px; /* align to left */
+  opacity: 0.5;
+}
+legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+  text-align: center;
+}
+
+/* Form Styles */
+form {
+  width: 100%;
+}
+
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form .form-group input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+form .form-group input:focus {
+  border-color: #2575fc;
+  outline: none;
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+}
+
+.custom-control {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.custom-control input {
+  margin-right: 5px;
+}
+
+/* Button Styles */
+button {
+  width: 100%;
+  padding: 10px 15px;
+  background: linear-gradient(to right, #f7f7f8, #ae0c03, #f7f7f8);
+  color: #ededed;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #ae0c03, #ae0c03, #ae0c03);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* password customizaion */
+.password-container {
+  position: relative;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+footer span {
+  color: #555;
+}
+
+/* Custom table styling */
+#userTable {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 15px;
+  background-color: #ee0909;
+  color: #2d5358;
+}
+
+#userTable thead {
+  background-color: #0d6efd; /* Bootstrap primary */
+  color: white;
+}
+
+#userTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+#userTable td,
+#userTable th {
+  vertical-align: middle;
+}
