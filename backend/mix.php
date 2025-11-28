@@ -188,117 +188,9 @@ $periods = getReviewPeriods($conn);
 
                             <!-- Import Drawer Overlay and Panel -->
                             <div id="importDrawerOverlay" class="overlay hidden"></div>
-                            <div id="importDrawer" class="modal hidden" role="dialog" aria-label="Upload Data File">
-                                <div class="modal">
-                                    <div class="modal-content">
+                            <?php include __DIR__ . '/../components/import_modal.php'; ?>
 
-                                        <!-- Header -->
-                                        <div class="modal-header">
-                                            <p class="modal-title">Upload Data File</p>
-                                            <button id="importDrawerClose" class="icon-btn"
-                                                aria-label="Close import drawer">
-                                                <span class="material-symbols-outlined">close</span>
-                                            </button>
-                                        </div>
-
-                                        <!-- File Upload Progress (placeholder / will be updated dynamically) -->
-                                        <div class="file-card">
-                                            <div class="file-icon">
-                                                <span class="material-symbols-outlined">description</span>
-                                            </div>
-                                            <div class="file-info">
-                                                <div class="file-header">
-                                                    <p class="file-name">No file selected</p>
-                                                    <p class="file-progress">0%</p>
-                                                </div>
-                                                <div class="progress-bar">
-                                                    <div class="progress-fill" style="width:0%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="file-action">
-                                                <button class="icon-btn" id="fileChooseBtn" title="Choose file">
-                                                    <span class="material-symbols-outlined">attach_file</span>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <!-- Hidden file input preserved for existing JS -->
-                                        <input id="drawerFileInput" type="file" style="display:none"
-                                            accept=".csv,.xls,.xlsx,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
-
-                                        <!-- Review Period (static placeholder from request) -->
-                                        <div class="section">
-
-                                            <!-- Modal Manual Add Periood -->
-                                            <div class="manual-period">
-                                                <!-- <h4>Add Custom Review Period</h4> -->
-                                                <form method="POST" action="add_period.php">
-                                                    <label>Start Date</label>
-                                                    <input type="date" name="start_date" required>
-
-                                                    <label>End Date</label>
-                                                    <input type="date" name="end_date" required>
-                                                    </br><label>Period Name</label>
-                                                    <input type="text" name="period_name" required
-                                                        placeholder="e.g. Custom Review">
-                                                    <button type="submit" class="btn primary">Save Period</button>
-                                                </form>
-                                            </div>
-                                            <div class="selected-period">
-                                                <div>
-                                                    <p class="selected-label">Selected Period</p>
-                                                    <div class="selected-info">
-                                                        <p class="selected-title">Q4 2023 Review</p>
-                                                        <p class="selected-date">Oct 1 - Dec 31, 2023</p>
-                                                    </div>
-                                                </div>
-                                                <button class="icon-btn primary" id="selectedPeriodClear">
-                                                    <span class="material-symbols-outlined">close</span>
-                                                </button>
-                                            </div>
-                                            <!-- End Modal Manual Add Periood -->
-                                            <!-- Search + List -->
-                                            <div class="period-list">
-                                                <div class="search-box">
-                                                    <span class="material-symbols-outlined">search</span>
-                                                    <input type="search" placeholder="Search periods..."
-                                                        id="periodSearch" />
-                                                </div>
-                                                <ul id="periodList">
-                                                    <?php if (!empty($periods)): ?>
-                                                    <?php foreach ($periods as $p): ?>
-                                                    <li class="period-item <?php echo $p['is_active'] ? 'active' : ''; ?>"
-                                                        data-id="<?php echo $p['id']; ?>">
-                                                        <div class="period-check">
-                                                            <?php if ($p['is_active']): ?>
-                                                            <span class="material-symbols-outlined">check_circle</span>
-                                                            <?php endif; ?>
-                                                            <span><?php echo htmlspecialchars($p['period_name']); ?></span>
-                                                        </div>
-                                                        <span class="period-date">
-                                                            <?php echo date("M j, Y", strtotime($p['start_date'])); ?> -
-                                                            <?php echo date("M j, Y", strtotime($p['end_date'])); ?>
-                                                        </span>
-                                                    </li>
-                                                    <?php endforeach; ?>
-                                                    <?php else: ?>
-                                                    <li class="period-item">No periods found</li>
-                                                    <?php endif; ?>
-                                                </ul>
-                                            </div>
-                                            <!-- Period List in Modal -->
-
-                                        </div>
-
-                                        <!-- Footer -->
-                                        <div class="modal-footer">
-                                            <button class="btn cancel" id="drawerCancelBtn">Cancel</button>
-                                            <button class="btn primary" id="drawerUploadBtn">Upload</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                            <script src="../assets/js/import_modal.js"></script>
 
                         </div>
 
@@ -431,6 +323,8 @@ $periods = getReviewPeriods($conn);
 
 </body>
 <!-- DataTables & extensions JS (required for Buttons & Select) -->
+
+
 <!-- jQuery (required by DataTables) -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
